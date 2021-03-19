@@ -15,10 +15,6 @@ IT Device Management
 This module supports the management and storage of IT equipment in the company.
 From now on, control over moved devices and their specifications is much easier. You get the possibility of gathering computers, phones and other IT devices in one place. Each group of devices has its own specification and technical data. Moreover, in the employee card a new page "Equipment" appears, where you can see the equipment owned by the employee. This module should only be operated by employees assigned to this task. Unauthorized people should not be able to access it.
 
-If you need help, please contact the author of the module.
-
-e-mail: daniel.demedziuk@gmail.com
-
 Main features
 -------------
 * Add computers.
