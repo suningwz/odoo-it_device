@@ -6,6 +6,9 @@
     'author': 'Daniel Demedziuk',
     'sequence': 110,
     'summary': 'IT Devices, Manage IT Devices and specifications',
+    'license': 'OPL-1',
+    'price':   9,
+    'currency':   'EUR',
     'description': """
 IT Device Management
 ==================================
@@ -32,7 +35,8 @@ Main features
     'depends': [
         'base',
         'mail',
-        'board'
+        'board',
+        'hr',
     ],
     'data': [
         'views/it_device_view.xml',
