@@ -45,6 +45,7 @@ Main features
         'security/it_device_security.xml',
         'security/ir.model.access.csv',
     ],
+    'images': ['static/description/it_dev.jpg'],
     'auto_install': False,
     'application': True,
     'installable': True,
