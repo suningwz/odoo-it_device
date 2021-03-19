@@ -32,7 +32,8 @@ Main features
     'depends': [
         'base',
         'mail',
-        'board'
+        'board',
+        'hr',
     ],
     'data': [
         'views/it_device_view.xml',
