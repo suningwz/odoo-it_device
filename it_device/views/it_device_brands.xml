@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="brand_acer" model="it_device.brand">
+            <field name="name">Acer</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_acer-image.png"/>
+        </record>
+        <record id="brand_apple" model="it_device.brand">
+            <field name="name">Apple</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_apple-image.png"/>
+        </record>
+        <record id="brand_asus" model="it_device.brand">
+            <field name="name">Asus</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_asus-image.png"/>
+        </record>
+        <record id="brand_dell" model="it_device.brand">
+            <field name="name">Dell</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_dell-image.png"/>
+        </record>
+        <record id="brand_hp" model="it_device.brand">
+            <field name="name">HP</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_hp-image.png"/>
+        </record>
+        <record id="brand_huawei" model="it_device.brand">
+            <field name="name">Huawei</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_huawei-image.png"/>
+        </record>
+        <record id="brand_lenovo" model="it_device.brand">
+            <field name="name">Lenovo</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_lenovo-image.png"/>
+        </record>
+        <record id="brand_lg" model="it_device.brand">
+            <field name="name">LG</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_lg-image.png"/>
+        </record>
+        <record id="brand_microsoft" model="it_device.brand">
+            <field name="name">Microsoft</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_microsoft-image.png"/>
+        </record>
+        <record id="brand_msi" model="it_device.brand">
+            <field name="name">MSI</field>
+            <field name="image" type="base64" file="it_device/static/img/brand_msi-image.png"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_it_device_category" model="ir.module.category">
+        <field name="name">IT Device</field>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="group_it_device_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_it_device_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="comment">The user will be able to see IT Devices created by managers.</field>
+    </record>
+
+    <record id="group_it_device_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_it_device_category"/>
+        <field name="implied_ids" eval="[(4, ref('group_it_device_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        <field name="comment">The manager will be able to create IT Devices.</field>
+    </record>
+
+</odoo>
