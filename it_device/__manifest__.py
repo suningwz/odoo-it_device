@@ -33,6 +33,7 @@ Main features
         'mail',
         'board',
         'hr',
+        'res',
     ],
     'data': [
         'views/it_device_view.xml',
