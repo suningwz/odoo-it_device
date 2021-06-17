@@ -9,8 +9,8 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//page[@name='hr_settings']" position="after">
-                    <page string="Equipment" groups="hr.group_hr_user">
-                        <!-- <group>
+                    <page string="Equipment" groups="it_device.group_it_device_manager">
+                        <group>
                             <group string="Computer" name="active_group">
                                 <field name="pc_id" string="Computer"/>
                             </group>
@@ -20,7 +20,7 @@
                         </group>
                         <group string="Others">
                             <field name="other" nolabel="1" placeholder="Enter any comments about these devices here."/>
-                        </group> -->
+                        </group>
                     </page>
                 </xpath>
 

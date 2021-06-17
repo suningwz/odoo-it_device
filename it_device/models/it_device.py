@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from datetime import datetime
 
 
 class ITDeviceModelBrand(models.Model):
@@ -35,14 +36,23 @@ class PCDevice(models.Model):
     pc_password = fields.Char(string="PC Password")
     pc_cpu = fields.Many2one('pc_cpu.model', string="Processor")
     pc_memory = fields.Integer(string="Memory RAM (GB)")
+    pc_hdd = fields.Boolean(string='HDD')
+    pc_ssd = fields.Boolean(string='SSD')
+    pc_hdd_capacity = fields.Integer(string='Capacity (GB)')
+    pc_ssd_capacity = fields.Integer(string='Capacity (GB)')
     pc_hard_drive = fields.Integer(string="Hard Drive (GB)")
     pc_mac_addr = fields.Char(string="MAC Address")
     pc_curr_user = fields.Many2one('hr.employee', string="Current user")
     pc_prv_user = fields.Many2one('hr.employee', string="Previous user")
-    pc_transfer_date = fields.Date(string="Date of transfer")
+    pc_transfer_date = fields.Date(string="Date of transfer", default=str(datetime.today()))
     pc_return_date = fields.Date(string="Date of return")
     pc_other = fields.Text(string="Other")
+    pc_provider = fields.Many2one('res.partner', string="Provider")
+    pc_provider_code = fields.Char(string='Provider code')
+    pc_producer_code = fields.Char(string='Producer code')
     license_line = fields.One2many('license.model', 'pc_id', string='License Model', store=True, copy=True)
+    accessories_line = fields.One2many('pc_add_accessories', 'pc_id', string='Additional accessories')
+    device_id = fields.Many2one('it_devices.model', string='Device')
     image = fields.Binary(related='brand_id.image', string="Logo", readonly=False)
     image_medium = fields.Binary(related='brand_id.image_medium', string="Logo (medium)", readonly=False)
     image_small = fields.Binary(related='brand_id.image_small', string="Logo (small)", readonly=False)
@@ -69,6 +79,34 @@ class PCDevice(models.Model):
             self.image_medium = self.brand_id.image
         else:
             self.image_medium = False
+
+    @api.onchange('pc_hdd', 'pc_ssd')
+    def _default_value(self):
+        for rec in self:
+            if not rec.pc_hdd:
+                rec.write({'pc_hdd_capacity': False})
+
+            if not rec.pc_ssd:
+                rec.write({'pc_ssd_capacity': False})
+
+    @api.onchange('pc_curr_user')
+    def auto_check_accessories(self):
+        for rec in self:
+            lines = [(5, 0, 0)]
+            for line in self.device_id.search([('curr_user', '=', rec.pc_curr_user.name)]):
+                val = {
+                    'device_id': line.id,
+                }
+                lines.append((0, 0, val))
+            rec.accessories_line = lines
+
+
+class PCAddAccessories(models.Model):
+    _name = 'pc_add_accessories'
+    _description = 'Additional PC Accessories'
+
+    device_id = fields.Many2one('it_devices.model', string='Device')
+    pc_id = fields.Many2one('pc_device.model', string='PC ID')
 
 
 class PCOSModel(models.Model):
@@ -162,8 +200,14 @@ class MobileDeviceModel(models.Model):
     name = fields.Char(compute="_compute_mobile_name", type="char", store=True)
     model_name = fields.Many2one('mobile_model.model', string='Model name', domain="[('brand', '=', brand_id)]", required=True)
     brand_id = fields.Many2one('it_device.brand', required=True)
+    mobile_screen_diagonal = fields.Float(string='Screen diagonal (")')
+    mobile_internal_memory = fields.Integer(string='Internal memory', help="This is the storage used to hold all your photos, videos, apps, and documents. The higher the value, the more files you can have in your device's memory.")
+    mobile_processor = fields.Many2one('mobile_processor.model', string="Processor")
+    mobile_os = fields.Many2one('mobile_os.model', string='Operation system')
+    mobile_dual_sim = fields.Boolean(string='Dual SIM')
+    mobile_battery = fields.Integer(string='Battery capacity (mAh)')
     mobile_imei = fields.Char(string='IMEI', required=True)
-    mobile_memory = fields.Integer(string='Memory (GB)')
+    mobile_memory = fields.Integer(string='RAM memory (GB)')
     mobile_network = fields.Many2one('mobile_network.model', string='Network')
     mobile_num = fields.Char(string='Phone number')
     mobile_pin = fields.Char(string='PIN')
@@ -173,9 +217,12 @@ class MobileDeviceModel(models.Model):
     mobile_code = fields.Char(string='Restriction code')
     mobile_cur_user = fields.Many2one('res.users', string='Current user')
     mobile_prv_user = fields.Many2one('res.users', string='Previous user')
-    mobile_transfer_date = fields.Date(string="Date of transfer")
+    mobile_transfer_date = fields.Date(string="Date of transfer", default=str(datetime.today()))
     mobile_return_date = fields.Date(string="Date of return")
     mobile_other = fields.Text(string="Other")
+    mobile_provider = fields.Many2one('res.partner', string='Provider')
+    mobile_provider_code = fields.Char(string="Provider code")
+    mobile_producer_code = fields.Char(string="Producer code")
     image = fields.Binary(related='brand_id.image', string="Logo", readonly=False)
     image_medium = fields.Binary(related='brand_id.image_medium', string="Logo (medium)", readonly=False)
     image_small = fields.Binary(related='brand_id.image_small', string="Logo (small)", readonly=False)
@@ -202,6 +249,24 @@ class MobileDeviceModel(models.Model):
             self.image_medium = self.brand_id.image
         else:
             self.image_medium = False
+
+
+class MobileProcessorModel(models.Model):
+    _name = "mobile_processor.model"
+    _description = "Model of mobile processor"
+    _order = "name asc"
+
+    name = fields.Char(string="Processor model name", required=True)
+    mobile_id = fields.Many2one('mobile_device.model', string='Mobile ID')
+
+
+class MobileOSModel(models.Model):
+    _name = "mobile_os.model"
+    _description = "Mobile OS"
+    _order = "name asc"
+
+    name = fields.Char(string="OS name", required=True)
+    mobile_id = fields.Many2one('mobile_device.model', string='Mobile ID')
 
 
 class MobileModelModel(models.Model):
@@ -248,10 +313,13 @@ class ITDevices(models.Model):
     brand_id = fields.Many2one('it_device.brand', string='Brand', required=True)
     curr_user = fields.Many2one('hr.employee', string='Current user')
     device = fields.Many2one('it_device_type.model', string='Device type')
-    date_transfer = fields.Date(string='Date of transfer')
+    date_transfer = fields.Date(string='Date of transfer', default=str(datetime.today()))
     date_return = fields.Date(string='Date of return')
     serial = fields.Char(string='Serial No.')
     it_other = fields.Text(string='Other')
+    provider = fields.Many2one('res.partner', string='Provider')
+    provider_code = fields.Char(string='Provider code')
+    producer_code = fields.Char(string='Producer code')
     image = fields.Binary(related='brand_id.image', string="Logo", readonly=False)
     image_medium = fields.Binary(related='brand_id.image_medium', string="Logo (medium)", readonly=False)
     image_small = fields.Binary(related='brand_id.image_small', string="Logo (small)", readonly=False)
