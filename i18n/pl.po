@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-18 11:32+0000\n"
-"PO-Revision-Date: 2021-03-18 11:32+0000\n"
+"POT-Creation-Date: 2021-06-22 09:48+0000\n"
+"PO-Revision-Date: 2021-06-22 09:48+0000\n"
 "Last-Translator: DanielDemedziuk <daniel.demedziuk@gmail.pl>, 2021\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -64,6 +64,17 @@ msgid "Add new phone."
 msgstr "Dodaj nowy telefon."
 
 #. module: it_device
+#: model:ir.model,name:it_device.model_pc_add_accessories
+msgid "Additional PC Accessories"
+msgstr "Dodatkowe akcesoria PC"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__accessories_line
+#: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_form
+msgid "Additional accessories"
+msgstr "Dodatkowe akcesoria"
+
+#. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_pc_os_model__arch
 msgid "Architecture"
 msgstr "Architektura"
@@ -79,6 +90,11 @@ msgstr "Ilość Załączników"
 #: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_form
 msgid "Base"
 msgstr "Baza"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_battery
+msgid "Battery capacity (mAh)"
+msgstr "Pojemność baterii (mAh)"
 
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_it_devices_model__brand_id
@@ -115,9 +131,15 @@ msgid "CPU model"
 msgstr "Model procesora"
 
 #. module: it_device
-#: model_terms:ir.ui.view,arch_db:it_device.mobile_device_model_form
-msgid "Cloud account"
-msgstr "Konto chmury"
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_hdd_capacity
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_ssd_capacity
+msgid "Capacity (GB)"
+msgstr "Pojemność (GB)"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category__color
+msgid "Color Index"
+msgstr "Indeks kolorów"
 
 #. module: it_device
 #: model_terms:ir.ui.view,arch_db:it_device.hr_employee_form_inherit
@@ -136,6 +158,7 @@ msgid "Configuration"
 msgstr "Konfiguracja"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category__create_uid
 #: model:ir.model.fields,field_description:it_device.field_it_device_brand__create_uid
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model__create_uid
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model__create_uid
@@ -145,6 +168,9 @@ msgstr "Konfiguracja"
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__create_uid
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model__create_uid
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model__create_uid
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__create_uid
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__create_uid
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__create_uid
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model__create_uid
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__create_uid
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model__create_uid
@@ -153,6 +179,7 @@ msgid "Created by"
 msgstr "Utworzona przez"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category__create_date
 #: model:ir.model.fields,field_description:it_device.field_it_device_brand__create_date
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model__create_date
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model__create_date
@@ -162,6 +189,9 @@ msgstr "Utworzona przez"
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__create_date
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model__create_date
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model__create_date
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__create_date
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__create_date
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__create_date
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model__create_date
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__create_date
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model__create_date
@@ -194,10 +224,22 @@ msgid "Date of transfer"
 msgstr "Data przekazania"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__device_id
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__device_id
+msgid "Device"
+msgstr "Urządzenie"
+
+#. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model__device_id
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model__device_id
 msgid "Device ID"
 msgstr "ID Urządzenia"
+
+#. module: it_device
+#: model:ir.model,name:it_device.model_category
+#: model:ir.model.fields,field_description:it_device.field_category__name
+msgid "Device category"
+msgstr "Kategoria urządzenia"
 
 #. module: it_device
 #: model:ir.ui.menu,name:it_device.it_device_base
@@ -218,6 +260,7 @@ msgid "Devices"
 msgstr "Urządzenia"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category__display_name
 #: model:ir.model.fields,field_description:it_device.field_it_device_brand__display_name
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model__display_name
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model__display_name
@@ -227,6 +270,9 @@ msgstr "Urządzenia"
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__display_name
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model__display_name
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model__display_name
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__display_name
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__display_name
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__display_name
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model__display_name
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__display_name
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model__display_name
@@ -238,6 +284,11 @@ msgstr "Nazwa wyświetlana"
 #: model:ir.model.fields,field_description:it_device.field_pc_os_model__distribution
 msgid "Distribution"
 msgstr "Dystrybucja"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_dual_sim
+msgid "Dual SIM"
+msgstr ""
 
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_pc_os_model__edition
@@ -302,8 +353,20 @@ msgstr "Informacje o GSM"
 #: model_terms:ir.ui.view,arch_db:it_device.it_devices_model_form
 #: model_terms:ir.ui.view,arch_db:it_device.mobile_device_model_form
 #: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_form
+msgid "General"
+msgstr "Ogólne"
+
+#. module: it_device
+#: model_terms:ir.ui.view,arch_db:it_device.it_devices_model_form
+#: model_terms:ir.ui.view,arch_db:it_device.mobile_device_model_form
+#: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_form
 msgid "General information"
 msgstr "Ogólne informacje"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_hdd
+msgid "HDD"
+msgstr ""
 
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_hard_drive
@@ -311,6 +374,7 @@ msgid "Hard Drive (GB)"
 msgstr "Twardy dysk (GB)"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category__id
 #: model:ir.model.fields,field_description:it_device.field_it_device_brand__id
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model__id
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model__id
@@ -320,6 +384,9 @@ msgstr "Twardy dysk (GB)"
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__id
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model__id
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model__id
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__id
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__id
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__id
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model__id
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__id
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model__id
@@ -380,6 +447,11 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Jesli zaznaczone, część wiadomości napotkało na błąd przy próbie doręczenia."
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_internal_memory
+msgid "Internal memory"
+msgstr "Wbudowana pamięć"
+
+#. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_it_devices_model__message_is_follower
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__message_is_follower
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__message_is_follower
@@ -387,6 +459,7 @@ msgid "Is Follower"
 msgstr "Jest obserwatorem"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category____last_update
 #: model:ir.model.fields,field_description:it_device.field_it_device_brand____last_update
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model____last_update
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model____last_update
@@ -396,6 +469,9 @@ msgstr "Jest obserwatorem"
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model____last_update
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model____last_update
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model____last_update
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model____last_update
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model____last_update
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories____last_update
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model____last_update
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model____last_update
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model____last_update
@@ -404,6 +480,7 @@ msgid "Last Modified on"
 msgstr "Data ostatniej modyfikacji"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category__write_uid
 #: model:ir.model.fields,field_description:it_device.field_it_device_brand__write_uid
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model__write_uid
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model__write_uid
@@ -413,6 +490,9 @@ msgstr "Data ostatniej modyfikacji"
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__write_uid
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model__write_uid
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model__write_uid
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__write_uid
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__write_uid
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__write_uid
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model__write_uid
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__write_uid
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model__write_uid
@@ -421,6 +501,7 @@ msgid "Last Updated by"
 msgstr "Ostatnio aktualizowane przez"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_category__write_date
 #: model:ir.model.fields,field_description:it_device.field_it_device_brand__write_date
 #: model:ir.model.fields,field_description:it_device.field_it_device_model_model__write_date
 #: model:ir.model.fields,field_description:it_device.field_it_device_type_model__write_date
@@ -430,6 +511,9 @@ msgstr "Ostatnio aktualizowane przez"
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__write_date
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model__write_date
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model__write_date
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__write_date
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__write_date
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__write_date
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model__write_date
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__write_date
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model__write_date
@@ -459,11 +543,6 @@ msgid "License software"
 msgstr "Licencja oprogramowania"
 
 #. module: it_device
-#: model_terms:ir.ui.view,arch_db:it_device.license_tree
-msgid "Licenses"
-msgstr "Licencje"
-
-#. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_cloud_login
 msgid "Login"
 msgstr ""
@@ -473,6 +552,10 @@ msgstr ""
 #: model:ir.model.fields,field_description:it_device.field_it_devices_model__image
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__image
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__image
+#: model_terms:ir.ui.view,arch_db:it_device.it_device_brand_tree
+#: model_terms:ir.ui.view,arch_db:it_device.it_devices_model_tree
+#: model_terms:ir.ui.view,arch_db:it_device.mobile_device_model_tree
+#: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_tree
 msgid "Logo"
 msgstr ""
 
@@ -521,11 +604,6 @@ msgid "Medium-sized logo of the brand. It is automatically resized as a 128x128p
 msgstr "Średniej wielkości logo marki. Jest automatycznie skalowane do 128x128 pikseli z automatycznym zachowaniem proporcji. Używane jako pole w formularzu widoku, lub w niektórych widokach zarządzania Kanban."
 
 #. module: it_device
-#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_memory
-msgid "Memory (GB)"
-msgstr "Pamięć (GB)"
-
-#. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_memory
 msgid "Memory RAM (GB)"
 msgstr "Pamięć RAM (GB)"
@@ -553,6 +631,8 @@ msgstr "Tel. komórkowy"
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_mobile_model_model__mobile_id
 #: model:ir.model.fields,field_description:it_device.field_mobile_network_model__mobile_id
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__mobile_id
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__mobile_id
 msgid "Mobile ID"
 msgstr "ID Telefonu"
 
@@ -570,6 +650,11 @@ msgstr "Operator telefonu"
 #: model:ir.model,name:it_device.model_mobile_network_model
 msgid "Mobile Network Model"
 msgstr "Model sieci telefonu"
+
+#. module: it_device
+#: model:ir.model,name:it_device.model_mobile_os_model
+msgid "Mobile OS"
+msgstr "System operacyjny"
 
 #. module: it_device
 #: model:ir.actions.act_window,name:it_device.mobile_model_act
@@ -651,6 +736,11 @@ msgstr "Model informacji o licencji"
 #: model:ir.model,name:it_device.model_mobile_model_model
 msgid "Model of mobile devices."
 msgstr "Model telefonu"
+
+#. module: it_device
+#: model:ir.model,name:it_device.model_mobile_processor_model
+msgid "Model of mobile processor"
+msgstr "Model procesora"
 
 #. module: it_device
 #: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_tree
@@ -750,6 +840,16 @@ msgid "OS edition: Home, Professional, Ultimate, Enterprise.."
 msgstr "Edycja systemu: Home, Professional, Ultimate, Enterprise.."
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_os_model__name
+msgid "OS name"
+msgstr "Nazwa systemu operacyjnego"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_os
+msgid "Operation system"
+msgstr "System operacyjny"
+
+#. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_hr_employee__other
 #: model:ir.model.fields,field_description:it_device.field_it_devices_model__it_other
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_other
@@ -781,6 +881,7 @@ msgstr "Właściciel"
 
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_license_model__pc_id
+#: model:ir.model.fields,field_description:it_device.field_pc_add_accessories__pc_id
 #: model:ir.model.fields,field_description:it_device.field_pc_cpu_model__pc_id
 #: model:ir.model.fields,field_description:it_device.field_pc_model_model__pc_id
 #: model:ir.model.fields,field_description:it_device.field_pc_os_model__pc_id
@@ -868,20 +969,57 @@ msgid "Planned"
 msgstr "Planowane"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_it_devices_model__prev_image
+msgid "Preview image"
+msgstr "Podgląd"
+
+#. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_prv_user
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_prv_user
 msgid "Previous user"
 msgstr "Poprzedni użytkownik"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_processor
 #: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_cpu
 msgid "Processor"
 msgstr "Procesor"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_processor_model__name
+msgid "Processor model name"
+msgstr "Nazwa procesora"
+
+#. module: it_device
 #: model_terms:ir.ui.view,arch_db:it_device.pc_cpu_tree
 msgid "Processors"
 msgstr "Procesory"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_it_devices_model__producer_code
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_producer_code
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_producer_code
+msgid "Producer code"
+msgstr "Kod producenta"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_it_devices_model__provider
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_provider
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_provider
+msgid "Provider"
+msgstr "Dostawca"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_it_devices_model__provider_code
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_provider_code
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_provider_code
+msgid "Provider code"
+msgstr "Kod dostawcy"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_memory
+msgid "RAM memory (GB)"
+msgstr "Pamięć RAM (GB)"
 
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_it_devices_model__activity_user_id
@@ -899,6 +1037,16 @@ msgstr "Kod ograniczenia"
 #: model_terms:ir.ui.view,arch_db:it_device.mobile_device_model_form
 msgid "SIM Card"
 msgstr "Karta SIM"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__pc_ssd
+msgid "SSD"
+msgstr ""
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_screen_diagonal
+msgid "Screen diagonal (\")"
+msgstr "Przekątna ekranu (\")"
 
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_it_devices_model__serial
@@ -923,6 +1071,11 @@ msgstr "Mały obrazek"
 #: model:ir.model.fields,help:it_device.field_pc_device_model__image_small
 msgid "Small-sized logo of the brand. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
 msgstr "Małe logo marki. Jest automatycznie skalowane do wymiaru 64x64 px, z zachowaniem proporcji. Używaj tego pola tam gdzie jest potrzebny mały obrazek."
+
+#. module: it_device
+#: model_terms:ir.ui.view,arch_db:it_device.license_tree
+msgid "Software"
+msgstr "Oprogramowanie"
 
 #. module: it_device
 #: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_form
@@ -970,6 +1123,18 @@ msgid "Systems"
 msgstr "Systemy"
 
 #. module: it_device
+#: sql_constraint:category:0
+msgid "Tag name already exists !"
+msgstr "Nazwa tagu już istnieje !"
+
+#. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_it_devices_model__category_ids
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__category_ids
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__category_ids
+msgid "Tags"
+msgstr "Tagi"
+
+#. module: it_device
 #: model:res.groups,comment:it_device.group_it_device_manager
 msgid "The manager will be able to create IT Devices."
 msgstr "Kierownik będzie miał możliwość tworzenia Urządzeń IT."
@@ -986,6 +1151,11 @@ msgstr "Użytkownik będzie mógł zobaczyć Urządzenia IT utworzone przez mene
 #: model:ir.model.fields,help:it_device.field_pc_device_model__image
 msgid "This field holds the image used as logo for the brand, limited to 1024x1024px."
 msgstr "Te pole jest przeznaczone na obrazek używany jako logo marki, rozmiar do 1024x1024 pikseli."
+
+#. module: it_device
+#: model:ir.model.fields,help:it_device.field_mobile_device_model__mobile_internal_memory
+msgid "This is the storage used to hold all your photos, videos, apps, and documents. The higher the value, the more files you can have in your device's memory."
+msgstr "Jest to pamięć masowa używana do przechowywania wszystkich zdjęć, filmów, aplikacji i dokumentów. Im wyższa wartość, tym więcej plików możesz mieć w pamięci urządzenia."
 
 #. module: it_device
 #: selection:it_devices.model,activity_state:0
@@ -1034,6 +1204,20 @@ msgid "Version"
 msgstr "Wersja"
 
 #. module: it_device
+#: model:ir.model.fields,field_description:it_device.field_it_devices_model__website_message_ids
+#: model:ir.model.fields,field_description:it_device.field_mobile_device_model__website_message_ids
+#: model:ir.model.fields,field_description:it_device.field_pc_device_model__website_message_ids
+msgid "Website Messages"
+msgstr "Wiadomości"
+
+#. module: it_device
+#: model:ir.model.fields,help:it_device.field_it_devices_model__website_message_ids
+#: model:ir.model.fields,help:it_device.field_mobile_device_model__website_message_ids
+#: model:ir.model.fields,help:it_device.field_pc_device_model__website_message_ids
+msgid "Website communication history"
+msgstr "Historia komunikacji"
+
+#. module: it_device
 #: model_terms:ir.actions.act_window,help:it_device.pc_device_model_act
 msgid "You can enter all computers, laptops, tablets, other office equipment into the register and assign them to employees."
 msgstr "Możesz wprowadzić do rejestru wszystkie komputery, laptopy, tablety, inne urządzenia biurowe i przypisać je do pracowników."
@@ -1047,6 +1231,17 @@ msgstr "Możesz wprowadzić wszystkie urządzenia do rejestru i przypisać je do
 #: model_terms:ir.actions.act_window,help:it_device.mobile_device_model_act
 msgid "You can enter all phones, carrier networks, other data into the registry and assign them to employees."
 msgstr "Możesz wprowadzić wszystkie telefony, sieci operatorów, inne dane do rejestru i przypisać je do pracowników."
+
+#. module: it_device
+#: model_terms:ir.ui.view,arch_db:it_device.mobile_device_model_form
+msgid "e.g. Android"
+msgstr "np. Android"
+
+#. module: it_device
+#: model_terms:ir.ui.view,arch_db:it_device.it_devices_model_form
+#: model_terms:ir.ui.view,arch_db:it_device.pc_device_model_form
+msgid "e.g. Wireless"
+msgstr "np. Bezprzewodowy"
 
 #. module: it_device
 #: model:ir.model,name:it_device.model_license_software

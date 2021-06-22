@@ -3,6 +3,8 @@ access_pc_device_user,pc_device model,model_pc_device_model,group_it_device_user
 access_pc_os_model_user,pc_os model,model_pc_os_model,group_it_device_user,1,0,0,0
 access_pc_model_model_user,pc_model model,model_pc_model_model,group_it_device_user,1,0,0,0
 access_pc_cpu_model_user,pc_cpu model,model_pc_cpu_model,group_it_device_user,1,0,0,0
+access_pc_accessories_user,pc_add_accessories model,model_pc_add_accessories,group_it_device_user,1,0,0,0
+access_category_user,category model,model_category,group_it_device_user,1,0,0,0
 access_license_model_user,license_model model,model_license_model,group_it_device_user,1,0,0,0
 access_license_software_user,license_software model,model_license_software,group_it_device_user,1,0,0,0
 access_mobile_device_model_user,mobile_device model,model_mobile_device_model,group_it_device_user,1,0,0,0
@@ -17,6 +19,8 @@ access_pc_device_manager,pc_device model,model_pc_device_model,group_it_device_m
 access_pc_os_model_manager,pc_os model,model_pc_os_model,group_it_device_manager,1,1,1,1
 access_pc_model_model_manager,pc_model model,model_pc_model_model,group_it_device_manager,1,1,1,1
 access_pc_cpu_model_manager,pc_cpu model,model_pc_cpu_model,group_it_device_manager,1,1,1,1
+access_pc_accessories_manager,pc_add_accessories model,model_pc_add_accessories,group_it_device_manager,1,1,1,1
+access_category_manager,category model,model_category,group_it_device_manager,1,1,1,1
 access_license_model_manager,license_model model,model_license_model,group_it_device_manager,1,1,1,1
 access_license_software_manager,license_software model,model_license_software,group_it_device_manager,1,1,1,1
 access_mobile_device_model_manager,mobile_device model,model_mobile_device_model,group_it_device_manager,1,1,1,1
