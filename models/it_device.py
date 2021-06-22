@@ -22,14 +22,29 @@ class ITDeviceModelBrand(models.Model):
                                      "Use this field anywhere a small image is required.")
 
 
+class Category(models.Model):
+    _name = 'category'
+    _description = 'Device category'
+    _order = 'name asc'
+
+    name = fields.Char(string='Device category', required=True)
+    color = fields.Integer(string='Color Index')
+
+    _sql_constraints = [
+        ('name_uniq', 'unique (name)', "Tag name already exists !"),
+    ]
+
+
 class PCDevice(models.Model):
     _name = 'pc_device.model'
     _description = 'Model of PC'
+    _order = 'brand_id asc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(compute="_compute_device_name", string='Name', store=True)
     model_name = fields.Many2one('pc_model.model', string='Model', domain="[('brand', '=', brand_id)]", required=True)
     brand_id = fields.Many2one('it_device.brand', 'Brand', required=True)
+    category_ids = fields.Many2many('category', string='Tags')
     pc_sn = fields.Char(string="Serial No.", required=True)
     pc_os = fields.Many2one("pc_os.model", string="System")
     pc_os_licence = fields.Char(string="OS License")
@@ -135,6 +150,7 @@ class PCOSModel(models.Model):
 class PCCpuModel(models.Model):
     _name = "pc_cpu.model"
     _description = "Model of CPU for PC"
+    _order = 'model asc'
 
     name = fields.Char(compute="_get_name", string="Name", readonly=True)
     model = fields.Char(string='CPU model', required=True)
@@ -195,11 +211,13 @@ class LicenseSoftware(models.Model):
 class MobileDeviceModel(models.Model):
     _name = 'mobile_device.model'
     _description = 'Model of a Mobile Device'
+    _order = 'brand_id asc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(compute="_compute_mobile_name", type="char", store=True)
     model_name = fields.Many2one('mobile_model.model', string='Model name', domain="[('brand', '=', brand_id)]", required=True)
     brand_id = fields.Many2one('it_device.brand', required=True)
+    category_ids = fields.Many2many('category', string='Tags')
     mobile_screen_diagonal = fields.Float(string='Screen diagonal (")')
     mobile_internal_memory = fields.Integer(string='Internal memory', help="This is the storage used to hold all your photos, videos, apps, and documents. The higher the value, the more files you can have in your device's memory.")
     mobile_processor = fields.Many2one('mobile_processor.model', string="Processor")
@@ -306,11 +324,13 @@ class HREmployeeInheritModel(models.Model):
 class ITDevices(models.Model):
     _name = 'it_devices.model'
     _description = 'IT Devices'
+    _order = 'brand_id asc'
     _inherit = ['mail.thread', 'mail.activity.mixin']
 
     name = fields.Char(compute="_compute_mobile_name", type="char", store=True)
     model_name = fields.Many2one('it_device_model.model', string='Model name', domain="[('brand', '=', brand_id)]", required=True)
     brand_id = fields.Many2one('it_device.brand', string='Brand', required=True)
+    category_ids = fields.Many2many('category', string='Tags')
     curr_user = fields.Many2one('hr.employee', string='Current user')
     device = fields.Many2one('it_device_type.model', string='Device type')
     date_transfer = fields.Date(string='Date of transfer', default=str(datetime.today()))
