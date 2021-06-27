@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="hr_employee_form_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.form.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='hr_settings']" position="after">
+                    <page string="Equipment" groups="it_device.group_it_device_manager">
+                        <group>
+                            <group string="Computer" name="active_group">
+                                <field name="pc_id" string="Computer"/>
+                            </group>
+                            <group string="Mobile" name="active_group">
+                                <field name="mobile_id" string="Mobile"/>
+                            </group>
+                        </group>
+                        <group string="Others">
+                            <field name="other" nolabel="1" placeholder="Enter any comments about these devices here."/>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>
