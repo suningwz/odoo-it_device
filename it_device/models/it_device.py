@@ -300,6 +300,7 @@ class MobileModelModel(models.Model):
 class MobileNetworkModel(models.Model):
     _name = 'mobile_network.model'
     _description = 'Mobile Network Model'
+    _order = "name asc"
 
     name = fields.Char(string='Network name')
     mobile_id = fields.Many2one('mobile_device.model', string='Mobile ID')
@@ -315,10 +316,14 @@ class HREmployeeInheritModel(models.Model):
     @api.one
     def get_devices_id(self):
         employee = self.name
-        if self.pc_id.search([('pc_curr_user', '=', employee)]):
-            self.pc_id = self.pc_id.search([('pc_curr_user', '=', employee)])[0]
-        if self.mobile_id.search([('mobile_cur_user', '=', employee)]):
-            self.mobile_id = self.mobile_id.search([('mobile_cur_user', '=', employee)])[0]
+        for rec in self:
+            if rec.pc_id.search([('pc_curr_user', '=', employee)]):
+                rec.pc_id = rec.pc_id.search([('pc_curr_user', '=', employee)])[0]
+            if rec.mobile_id.search([('mobile_cur_user', '=', employee)]):
+                rec.mobile_id = rec.mobile_id.search([('mobile_cur_user', '=', employee)])[0]
+                rec.write({
+                    'mobile_phone': rec.mobile_id['mobile_num'],
+                })
 
 
 class ITDevices(models.Model):
