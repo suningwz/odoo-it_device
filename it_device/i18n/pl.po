@@ -397,7 +397,7 @@ msgstr ""
 #. module: it_device
 #: model:ir.model.fields,field_description:it_device.field_mobile_device_model__mobile_imei
 msgid "IMEI"
-msgstr ""
+msgstr "IMEI"
 
 #. module: it_device
 #: model:ir.module.category,name:it_device.module_it_device_category
