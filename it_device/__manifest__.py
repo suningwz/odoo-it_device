@@ -3,7 +3,7 @@
 {
     'name': 'IT Devices',
     'version': '1.1',
-    'author': 'Daniel Demedziuk',
+    'author': 'DSquare Net',
     'sequence': 110,
     'summary': 'IT Devices, Manage IT Devices and specifications',
     'license': 'OPL-1',
