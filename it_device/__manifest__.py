@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'IT Devices',
+    'name': 'IT Device',
     'version': '1.1',
     'author': 'DSquare Net',
     'sequence': 110,
