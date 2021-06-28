@@ -92,7 +92,7 @@
             <field name="arch" type="xml">
                 <form string="Base">
                     <sheet>
-                        <field name="image_medium" widget='image' class="oe_left oe_avatar"/>
+                        <field name="image_medium" widget='image' class="oe_avatar"/>
                         <div class="oe_title">
                             <label for="brand_id" class="oe_edit_only"/>
                             <h1>
@@ -111,7 +111,7 @@
                         <notebook colspan="4">
                             <page name="general_information" string="General information">
                                 <group col="4" colspan="2" name="general_information">
-                                    <group col="2" string="Specification">
+                                    <group col='2' colspan="2" string="Specification">
                                         <field name="pc_os"/>
                                         <field name="pc_cpu"/>
                                         <field name="pc_memory"/>
@@ -241,7 +241,7 @@
             <field name="arch" type="xml">
                 <form string="Phones">
                     <sheet>
-                        <field name="image_medium" widget='image' class="oe_left oe_avatar"/>
+                        <field name="image_medium" widget='image' class="oe_avatar"/>
                         <div class="oe_title">
                             <label for="brand_id" class="oe_edit_only"/>
                             <h1>
@@ -259,8 +259,8 @@
                         </div>
                         <notebook colspan="4">
                             <page name="general_information" string="General information">
-                                <group col="2" colspan="2" name="general_information_main">
-                                    <group col="2" string="Specification">
+                                <group col="4" colspan="2" name="general_information_main">
+                                    <group col="2" colspan="2" string="Specification">
                                         <field name="mobile_screen_diagonal"/>
                                         <field name="mobile_internal_memory"/>
                                         <field name="mobile_memory"/>
@@ -269,12 +269,12 @@
                                         <field name="mobile_dual_sim"/>
                                         <field name="mobile_battery"/>
                                     </group>
-                                    <group col="2" string="General">
+                                    <group col="2" colspan="2" string="General">
                                         <field name="mobile_provider"/>
                                         <field name="mobile_provider_code" attrs="{'invisible': [('mobile_provider', '==', False)]}"/>
                                         <field name="mobile_producer_code"/>
                                     </group>
-                                    <group col="2" string="Owner">
+                                    <group col="2" colspan="2" string="Owner">
                                         <field name="mobile_cur_user" options="{'no_create': True, 'no_create_edit':True}"/>
                                         <field name="mobile_transfer_date"/>
                                         <field name="mobile_return_date"/>
@@ -350,7 +350,7 @@
             <field name="arch" type="xml">
                 <form string="Devices">
                     <sheet>
-                        <field name="image_medium" widget='image' class="oe_left oe_avatar"/>
+                        <field name="image_medium" widget='image' class="oe_avatar"/>
                         <div class="oe_title">
                             <label for="brand_id" class="oe_edit_only"/>
                             <h1>
@@ -365,21 +365,21 @@
                         <notebook colspan="4">
                             <page name="general_information" string="General information">
                                 <group col="4" colspan="2" name="general_information">
-                                    <group col="2" string="Specification">
+                                    <group col="2" colspan="2" string="Specification">
                                         <field name="device" class="oe_inline"/>
                                         <field name="serial" class="oe_inline"/>
                                     </group>
-                                    <group col="2" string="Owner">
+                                    <group col="2" colspan="2" string="Owner">
                                         <field name="curr_user" options="{'no_create': True, 'no_create_edit':True}"/>
                                         <field name="date_transfer"/>
                                         <field name="date_return"/>
                                     </group>
-                                    <group col="2" string="General">
+                                    <group col="2" colspan="2" string="General">
                                         <field name="provider"/>
                                         <field name="provider_code" attrs="{'invisible': [('provider', '==', False)]}"/>
                                         <field name="producer_code"/>
                                     </group>
-                                    <group col="2" sting="Preview">
+                                    <group col="2" colspan="1" string="Preview">
                                         <field name="prev_image" widget="image"/>
                                     </group>
                                 </group>
