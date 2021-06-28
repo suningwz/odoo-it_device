@@ -1,4 +1,4 @@
-# Odoo 12 IT Device
+# Odoo IT Device
 ## Table of contents
 * [General info](#general-info)
 * [Features](#features)
